@@ -41,14 +41,15 @@ button:hover {
   font-weight: 400;
   font-size: 14px;
 }
-.locations {
-  height: 100%;
-  width: 25%;
-  border-right: 1px solid #dddddd;
-}
+.locations,
 .amenities {
   height: auto;
   width: 25%;
+}
+
+.locations h3,
+.locations h4 {
+  border-right: 1px solid #dddddd;
 }
 
 .popover {
@@ -77,6 +78,13 @@ button:hover {
 }
 
 .amenities h4 {
+  max-width: 320px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.locations h4 {
   max-width: 320px;
   overflow: hidden;
   white-space: nowrap;
