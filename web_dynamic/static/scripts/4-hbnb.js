@@ -1,14 +1,14 @@
-// Execute the script when DOM is loaded
-$(document).ready(function () {
-  // Initialize an empty object to store Amenity IDs
-  const selectedAmenities = {};
-
+// Function to fetch and display places data
+function fetchPlacesData (data = {}) {
   $.ajax({
     url: 'http://0.0.0.0:5001/api/v1/places_search/',
     type: 'POST',
     contentType: 'application/json',
-    data: JSON.stringify({}),
+    data: JSON.stringify(data),
     success: (response) => {
+      // Clear existing places
+      $('.places').empty();
+
       // Loop through the result of the request and create article tags representing Places
       response.forEach((place) => {
         // Create the article tag
@@ -58,6 +58,21 @@ $(document).ready(function () {
       // Log any errors to console
       console.error('Error fetching places data:', error);
     }
+  });
+}
+
+// Execute the script when DOM is loaded
+$(document).ready(function () {
+  // Initialize an empty object to store Amenity IDs
+  const selectedAmenities = {};
+
+  // Call fetchPlacesData initially with empty data
+  fetchPlacesData();
+
+  // Set up button click event listener
+  $('button').click(function () {
+    // Make a new POST request to places_search endpoint with the list of selected amenities
+    fetchPlacesData({ amenities: Object.keys(selectedAmenities) });
   });
 
   // Function to update API status
