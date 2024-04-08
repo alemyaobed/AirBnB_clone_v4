@@ -1,0 +1,19 @@
+.loading-indicator {
+    display: none; /* Initially hide the loading indicator */
+    position: absolute; /* Position the loading indicator */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center the loading indicator */
+    width: 50px; /* Set width */
+    height: 50px; /* Set height */
+    border: 5px solid #ccc; /* Border */
+    border-radius: 50%; /* Circular shape */
+    border-top: 5px solid #3498db; /* Blue color for top border */
+    animation: spin 1s linear infinite; /* Animation */
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
